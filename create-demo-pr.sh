@@ -34,17 +34,12 @@ git push origin $BRANCH
 PR_NUM=$(hub pull-request -b $BASE_BRANCH -m 'Change Sign Up button style.' | grep -oE '[0-9]+')
 
 export PERCY_BRANCH=$BRANCH
-export PERCY_PULL_REQUEST=$PR_NUM
+export PERCY_PULL_REQUEST=${PR_NUM:0:4}
 
 npm test
 
 # Create the fake "ci/service: Tests passed" notification on the PR.
 # Uses a personal access token (https://github.com/settings/tokens) which has scope "repo:status".
-echo "start"
-echo $PR_NUM
-echo $GITHUB_USER
-echo $GITHUB_TOKEN
-echo "end"
 curl \
   -u $GITHUB_USER:$GITHUB_TOKEN \
   -d '{"state": "success", "target_url": "https://example.com/build/status", "description": "Tests passed", "context": "ci/service"}' \
