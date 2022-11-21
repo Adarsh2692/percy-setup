@@ -9,7 +9,7 @@ fi
 
 
 NOW=`date +%d%H%M%S`
-BASE_BRANCH="main-$NOW"
+BASE_BRANCH="master-$NOW"
 BRANCH="update-button-$NOW"
 if [ ${CI_USER_ID} != '' ]
 then
@@ -20,9 +20,9 @@ fi
 # cd to current directory as root of script
 cd "$(dirname "$0")"
 
-# Create a "main-123123" branch for the PR's baseline.
-# This allows demo PRs to be merged without fear of breaking the actual main.
-git checkout main
+# Create a "master-123123" branch for the PR's baseline.
+# This allows demo PRs to be merged without fear of breaking the actual master.
+git checkout master
 git checkout -b $BASE_BRANCH
 git push origin $BASE_BRANCH
 
@@ -45,6 +45,6 @@ curl \
   -d '{"state": "success", "target_url": "https://example.com/build/status", "description": "Tests passed", "context": "ci/service"}' \
   "https://api.github.com/repos/browserstack/percy-demo/statuses/$(git rev-parse --verify HEAD)"
 
-git checkout main
+git checkout master
 git branch -D $BASE_BRANCH
 git branch -D $BRANCH
