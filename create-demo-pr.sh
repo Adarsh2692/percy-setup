@@ -40,6 +40,9 @@ npm test
 
 # Create the fake "ci/service: Tests passed" notification on the PR.
 # Uses a personal access token (https://github.com/settings/tokens) which has scope "repo:status".
+echo $PR_NUM
+exho $GITHUB_USER
+echo $GITHUB_TOKEN
 curl \
   -u $GITHUB_USER:$GITHUB_TOKEN \
   -d '{"state": "success", "target_url": "https://example.com/build/status", "description": "Tests passed", "context": "ci/service"}' \
