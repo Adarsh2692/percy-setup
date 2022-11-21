@@ -33,7 +33,7 @@ git commit --amend -m 'Change Sign Up button style.'
 git push origin $BRANCH
 PR_NUM=$(hub pull-request -b $BASE_BRANCH -m 'Change Sign Up button style.' | grep -oE '[0-9]+')
 
-export PERCY_BRANCH=$BRANCH
+export PERCY_BRANCH="master"
 export PERCY_PULL_REQUEST=${PR_NUM:0:4}
 
 export PERCY_TOKEN=${PERCY_TOKEN_1}
