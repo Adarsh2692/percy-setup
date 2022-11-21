@@ -38,8 +38,8 @@ export PERCY_PULL_REQUEST=${PR_NUM:0:4}
 
 export PERCY_TOKEN=${PERCY_TOKEN_1}
 npm test
-export PERCY_TOKEN=${PERCY_TOKEN_2}
-npm test
+# export PERCY_TOKEN=${PERCY_TOKEN_2}
+# npm test
 
 # Create the fake "ci/service: Tests passed" notification on the PR.
 # Uses a personal access token (https://github.com/settings/tokens) which has scope "repo:status".
