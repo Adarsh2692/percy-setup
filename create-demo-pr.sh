@@ -36,6 +36,9 @@ PR_NUM=$(hub pull-request -b $BASE_BRANCH -m 'Change Sign Up button style.' | gr
 export PERCY_BRANCH=$BRANCH
 export PERCY_PULL_REQUEST=${PR_NUM:0:4}
 
+export PERCY_TOKEN=${PERCY_TOKEN_1}
+npm test
+export PERCY_TOKEN=${PERCY_TOKEN_2}
 npm test
 
 # Create the fake "ci/service: Tests passed" notification on the PR.
