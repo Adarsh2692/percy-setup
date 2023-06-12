@@ -20,4 +20,5 @@ steps:
     ls
     export PERCY_TOKEN=web_c6f0149157e808fea6099b2615bea42a2c8856644e1bdfe1c82fa1b2bbc4ec96
     echo ${PERCY_TOKEN}
+    npm i @percy/cli
     npx percy exec -t 200 -- node tests/demo.js
