@@ -18,3 +18,4 @@ steps:
 - script: |
     npm install
     ls
+    export PERCY_TOKEN=${Percy_token}
