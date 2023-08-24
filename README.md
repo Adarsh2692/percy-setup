@@ -1,5 +1,6 @@
 # demo-dashboard
 
+Temp
 A demo application to showcase the power of Percy!
 
 Note: this repository is private and should not be shared because it is based on the spark-bootstrap-theme, which is closed source. Full license is here: https://themes.getbootstrap.com/licenses/ .
